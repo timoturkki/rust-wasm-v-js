@@ -26,3 +26,12 @@ pub fn get_element(selector: &str) -> Result<Option<Element>, JsValue> {
     
     document.query_selector(selector)
 }
+
+#[wasm_bindgen]
+pub fn transform_array() -> Vec<u32> {
+    let vec = vec![2; 500000];
+
+    let vec2 = vec.into_iter().map(|x| x + 1).collect();
+
+    vec2
+}
